@@ -511,6 +511,17 @@ const modeToggleHtml = THEME_TOGGLE
      </button>`
   : '';
 
+const ANALYTICS = CFG.analytics as
+  | { domain?: string; scriptSrc?: string; apiUrl?: string }
+  | undefined;
+
+const analyticsHtml =
+  ANALYTICS && ANALYTICS.domain && ANALYTICS.scriptSrc
+    ? `<script defer data-domain="${escapeHtml(ANALYTICS.domain)}"${
+        ANALYTICS.apiUrl ? ` data-api="${escapeHtml(ANALYTICS.apiUrl)}"` : ''
+      } src="${escapeHtml(ANALYTICS.scriptSrc)}"></script>`
+    : '';
+
 const footerAuthor = CFG.author
   ? `<p>Curated by <a href="${escapeHtml(CFG.authorUrl || '#')}">${escapeHtml(CFG.author)}</a>.</p>
      <p class="muted">© ${new Date().getFullYear()} ${
@@ -537,6 +548,7 @@ const renderShell = (opts: {
     footer_author_html: footerAuthor,
     font_links_html: fontLinksHtml,
     favicon_links_html: faviconLinksHtml,
+    analytics_html: analyticsHtml,
     built_at: BUILT_AT,
   });
 

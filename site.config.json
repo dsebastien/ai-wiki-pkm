@@ -51,5 +51,10 @@
     "second-brain"
   ],
   "ctaMax": 4,
-  "ctaSource": "https://store.dsebastien.net/products-light.json"
+  "ctaSource": "https://store.dsebastien.net/products-light.json",
+  "analytics": {
+    "domain": "pkm-wiki.knowii.net",
+    "scriptSrc": "https://blue-bar-dsebastien-19fd.developassion.workers.dev/content/script.js",
+    "apiUrl": "https://blue-bar-dsebastien-19fd.developassion.workers.dev/api/v1/event"
+  }
 }

@@ -9,6 +9,7 @@
     const next = root.dataset.mode === 'dark' ? 'light' : 'dark';
     root.dataset.mode = next;
     localStorage.setItem('mode', next);
+    window.wikiAnalytics?.themeToggled(next);
   });
 
   // ---- search ----
@@ -61,8 +62,24 @@
     if (e.key === 'ArrowUp') { e.preventDefault(); moveActive(-1); return; }
     if (e.key === 'Enter') {
       const a = results.querySelector('li.active a');
-      if (a) window.location.href = a.href;
+      if (a) {
+        trackResultSelection(a);
+        window.location.href = a.href;
+      }
     }
+  });
+
+  const trackResultSelection = (a) => {
+    const li = a.closest('li');
+    const items = [...results.querySelectorAll('li:not(.empty)')];
+    const rank = items.indexOf(li);
+    const slug = (a.getAttribute('href') || '').replace(/^\//, '').replace(/\.html$/, '');
+    window.wikiAnalytics?.searchSelected(slug, rank >= 0 ? rank : 0);
+  };
+
+  results?.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (a) trackResultSelection(a);
   });
 
   const moveActive = (delta) => {
@@ -75,9 +92,19 @@
   };
 
   let timer = null;
+  let analyticsTimer = null;
+  let lastTrackedQuery = '';
   input?.addEventListener('input', () => {
     clearTimeout(timer);
     timer = setTimeout(runSearch, 80);
+    clearTimeout(analyticsTimer);
+    analyticsTimer = setTimeout(() => {
+      const q = input.value.trim();
+      if (q.length < 3 || q === lastTrackedQuery) return;
+      lastTrackedQuery = q;
+      const count = results.querySelectorAll('li:not(.empty)').length;
+      window.wikiAnalytics?.searchPerformed(q.length, count);
+    }, 800);
   });
 
   const runSearch = () => {

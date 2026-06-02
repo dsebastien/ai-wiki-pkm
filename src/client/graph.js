@@ -185,9 +185,11 @@
     .onNodeClick((n) => {
       // Double-click navigates; single-click focuses.
       if (focusedId === n.id) {
+        window.wikiAnalytics?.graphNodeOpened(n.id);
         window.location.href = `/${n.id}.html`;
       } else {
         focusedId = n.id;
+        window.wikiAnalytics?.graphNodeFocused(n.id);
       }
     })
     .onBackgroundClick(() => {

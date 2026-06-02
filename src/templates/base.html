@@ -22,6 +22,7 @@
       if (m === 'light' || m === 'dark') document.documentElement.dataset.mode = m;
     })();
   </script>
+  {{analytics_html}}
 </head>
 <body class="{{body_class}}">
   <a class="skip" href="#main">Skip to content</a>
@@ -83,6 +84,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script>
+  <script src="/js/analytics.js" defer></script>
   <script src="/js/app.js" defer></script>
 </body>
 </html>
