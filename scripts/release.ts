@@ -10,8 +10,8 @@
 //
 // Runs `sync` first so content/ reflects the latest source notes, then commits
 // any content changes separately before bumping the version. Pushes the commit
-// and the tag. Downstream deploys (GitHub Pages, Cloudflare Pages connected to
-// the repo) react to the push automatically.
+// and the tag, and fast-forwards origin/production to the tagged commit so
+// Cloudflare Pages (configured to watch `production`) deploys only on release.
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -91,6 +91,13 @@ run('git', ['add', 'package.json']);
 run('git', ['commit', '-m', `release: ${tag}`]);
 run('git', ['tag', '-a', tag, '-m', `Release ${tag}`]);
 run('git', ['push']);
-run('git', ['push', '--tags']);
+run('git', ['push', 'origin', tag]);
 
-console.log(`\n✓ released ${tag}`);
+// Advance origin/production to the tagged commit. Done as a single remote-side
+// update so we don't need to checkout the production branch locally. Uses a
+// non-forced push: release commits always sit on top of the previous release,
+// so a fast-forward is the expected case; a rejection here means something
+// unexpected diverged on production and should be investigated, not forced.
+run('git', ['push', 'origin', `${tag}^{commit}:refs/heads/production`]);
+
+console.log(`\n✓ released ${tag} (production updated)`);
