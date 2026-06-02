@@ -340,6 +340,8 @@ type Product = {
   blurb?: string;
   href: string;
   badge?: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 const ctaHeroHtml = (() => {
@@ -447,6 +449,105 @@ const products: Product[] =
     ? CFG.ctaProducts
     : await loadCtasFromEndpoint();
 
+// Enrich CTA products with Open Graph metadata (image + description) fetched
+// from each product's landing page. Cached on disk so repeat builds are free
+// and an offline build still produces cards (just without images).
+const OG_CACHE_PATH = join(ROOT, '.cache', 'og.json');
+type OgEntry = { image?: string; description?: string; title?: string; fetchedAt: string };
+const ogCache: Record<string, OgEntry> = (() => {
+  try {
+    return JSON.parse(readFileSync(OG_CACHE_PATH, 'utf8'));
+  } catch {
+    return {};
+  }
+})();
+const OG_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+
+const extractMeta = (html: string, key: string): string | undefined => {
+  const re = new RegExp(
+    `<meta[^>]+(?:property|name)=["']${key}["'][^>]*content=["']([^"']+)["']`,
+    'i',
+  );
+  const m = html.match(re);
+  if (m) return m[1];
+  const re2 = new RegExp(
+    `<meta[^>]+content=["']([^"']+)["'][^>]+(?:property|name)=["']${key}["']`,
+    'i',
+  );
+  const m2 = html.match(re2);
+  return m2?.[1];
+};
+
+const fetchOg = async (href: string): Promise<OgEntry | undefined> => {
+  const cached = ogCache[href];
+  if (cached && Date.now() - new Date(cached.fetchedAt).getTime() < OG_TTL_MS) return cached;
+  try {
+    const r = await fetch(href, {
+      signal: AbortSignal.timeout(8000),
+      headers: { 'user-agent': 'Mozilla/5.0 (ai-wiki-template og-fetch)' },
+      redirect: 'follow',
+    });
+    if (!r.ok) return cached;
+    const html = await r.text();
+    const entry: OgEntry = {
+      image: extractMeta(html, 'og:image'),
+      description: extractMeta(html, 'og:description') || extractMeta(html, 'description'),
+      title: extractMeta(html, 'og:title'),
+      fetchedAt: new Date().toISOString(),
+    };
+    ogCache[href] = entry;
+    return entry;
+  } catch {
+    return cached;
+  }
+};
+
+if (products.length) {
+  const ogs = await Promise.all(products.map((p) => fetchOg(p.href)));
+  products.forEach((p, i) => {
+    const og = ogs[i];
+    if (!og) return;
+    if (og.image && !p.image) p.image = og.image;
+    if (!p.imageAlt) p.imageAlt = og.title || p.title;
+    // OG description is only a fallback — the catalog shortDescription is
+    // already a punchy hand-written line we'd rather keep.
+    if (!p.blurb && og.description) {
+      p.blurb = og.description.length > 140 ? og.description.slice(0, 137).trimEnd() + '…' : og.description;
+    }
+  });
+  try {
+    mkdirSync(join(ROOT, '.cache'), { recursive: true });
+    writeFileSync(OG_CACHE_PATH, JSON.stringify(ogCache, null, 2));
+  } catch {
+    // Best-effort cache write; ignore failures.
+  }
+}
+
+const renderCtaCard = (
+  p: Product,
+  opts: { compact?: boolean; position: 'end' | 'mid' | 'home'; slot?: number } = {
+    position: 'home',
+  },
+): string => {
+  const cls = ['cta-card'];
+  if (opts.compact) cls.push('cta-card--compact');
+  if (p.image) cls.push('cta-card--media');
+  const slotAttr = opts.slot != null ? ` data-cta-slot="${opts.slot}"` : '';
+  const media = p.image
+    ? `<div class="cta-card__media"><img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.imageAlt || p.title)}" loading="lazy" decoding="async" /></div>`
+    : '';
+  return `<a class="${cls.join(' ')}" href="${escapeHtml(p.href)}" rel="noopener" data-cta-position="${opts.position}"${slotAttr}>
+        ${media}
+        <div class="cta-card__body">
+          ${p.badge ? `<span class="cta-card__badge">${escapeHtml(p.badge)}</span>` : ''}
+          <span class="cta-card__kicker">${escapeHtml(p.kicker || '')}</span>
+          <h3>${escapeHtml(p.title)}</h3>
+          <p>${escapeHtml(p.blurb || '')}</p>
+          <span class="cta-card__more">Learn more →</span>
+        </div>
+      </a>`;
+};
+
 const ctaProductsHtml = products.length
   ? `
 <section class="container-wiki section section--cta">
@@ -455,18 +556,7 @@ const ctaProductsHtml = products.length
     <p class="muted">Products and resources for the people behind this wiki.</p>
   </header>
   <div class="cta-cards">
-    ${products
-      .map(
-        (p) => `
-      <a class="cta-card" href="${escapeHtml(p.href)}" rel="noopener">
-        ${p.badge ? `<span class="cta-card__badge">${escapeHtml(p.badge)}</span>` : ''}
-        <span class="cta-card__kicker">${escapeHtml(p.kicker || '')}</span>
-        <h3>${escapeHtml(p.title)}</h3>
-        <p>${escapeHtml(p.blurb || '')}</p>
-        <span class="cta-card__more">Learn more →</span>
-      </a>`,
-      )
-      .join('')}
+    ${products.map((p) => renderCtaCard(p, { position: 'home' })).join('')}
   </div>
 </section>`
   : '';
@@ -478,14 +568,7 @@ const ctaArticleStripHtml = products.length
   <div class="article-cta__grid">
     ${products
       .slice(0, 2)
-      .map(
-        (p) => `
-      <a class="cta-card cta-card--compact" href="${escapeHtml(p.href)}" rel="noopener" data-cta-position="end">
-        <span class="cta-card__kicker">${escapeHtml(p.kicker || '')}</span>
-        <h3>${escapeHtml(p.title)}</h3>
-        <p>${escapeHtml(p.blurb || '')}</p>
-      </a>`,
-      )
+      .map((p) => renderCtaCard(p, { compact: true, position: 'end' }))
       .join('')}
   </div>
 </aside>`
@@ -497,12 +580,7 @@ const midArticleCtasHtml = midArticleCtas.length
       .map(
         (p, i) => `
   <aside class="mid-article-cta" data-cta-slot="${i}" hidden>
-    <a class="cta-card cta-card--compact" href="${escapeHtml(p.href)}" rel="noopener" data-cta-position="mid" data-cta-slot="${i}">
-      <span class="cta-card__kicker">${escapeHtml(p.kicker || '')}</span>
-      <h3>${escapeHtml(p.title)}</h3>
-      <p>${escapeHtml(p.blurb || '')}</p>
-      <span class="cta-card__more">Learn more →</span>
-    </a>
+    ${renderCtaCard(p, { compact: true, position: 'mid', slot: i })}
   </aside>`,
       )
       .join('')}</div>`

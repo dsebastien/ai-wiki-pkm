@@ -354,20 +354,38 @@
   @media (min-width: 1100px) { .cta-cards { @apply grid-cols-4; } }
 
   .cta-card {
-    @apply relative flex flex-col gap-2.5 p-5 md:p-6 rounded-card
+    @apply relative flex flex-col overflow-hidden rounded-card
            border border-line bg-bg-elev text-ink
-           transition-[transform,border-color,box-shadow,background] duration-150;
+           transition-[transform,border-color,box-shadow,background] duration-200;
   }
   .cta-card:hover {
-    @apply scale-[1.02] text-ink bg-bg-elev-2;
-    border-color: color-mix(in oklab, var(--theme-accent) 40%, transparent);
-    box-shadow: 0 10px 30px -10px color-mix(in oklab, var(--theme-accent) 40%, transparent);
+    @apply -translate-y-0.5 text-ink bg-bg-elev-2;
+    border-color: color-mix(in oklab, var(--theme-accent) 45%, transparent);
+    box-shadow: 0 16px 40px -16px color-mix(in oklab, var(--theme-accent) 50%, transparent);
+  }
+  .cta-card__media {
+    @apply relative overflow-hidden;
+    aspect-ratio: 16 / 9;
+    background: color-mix(in oklab, var(--theme-accent) 8%, var(--theme-bg-elev));
+  }
+  .cta-card__media img {
+    @apply absolute inset-0 h-full w-full object-cover
+           transition-transform duration-300;
+  }
+  .cta-card__media::after {
+    content: '';
+    @apply absolute inset-x-0 bottom-0 h-1/2 pointer-events-none;
+    background: linear-gradient(to bottom, transparent, color-mix(in oklab, var(--theme-bg-elev) 60%, transparent));
+  }
+  .cta-card:hover .cta-card__media img { @apply scale-[1.04]; }
+  .cta-card__body {
+    @apply flex flex-col gap-2 p-5 md:p-6;
   }
   .cta-card__badge {
-    @apply absolute top-3 right-3 px-2.5 py-1 rounded-full font-bold uppercase
-           text-[10px] tracking-[0.08em] text-accent-text border;
-    background: color-mix(in oklab, var(--theme-accent) 14%, transparent);
-    border-color: color-mix(in oklab, var(--theme-accent) 35%, transparent);
+    @apply absolute top-3 right-3 z-10 px-2.5 py-1 rounded-full font-bold uppercase
+           text-[10px] tracking-[0.08em] text-accent-text border backdrop-blur-sm;
+    background: color-mix(in oklab, var(--theme-accent) 18%, transparent);
+    border-color: color-mix(in oklab, var(--theme-accent) 40%, transparent);
   }
   .cta-card__kicker {
     @apply font-mono text-[11px] uppercase tracking-[0.08em] text-ink-muted;
@@ -382,8 +400,10 @@
     @apply m-0 flex-1 text-[13.5px] leading-snug text-ink-soft;
   }
   .cta-card__more {
-    @apply mt-auto pt-2 text-[13px] font-bold text-accent-text;
+    @apply mt-2 text-[13px] font-bold text-accent-text inline-flex items-center gap-1;
+    transition: transform 150ms ease;
   }
+  .cta-card:hover .cta-card__more { @apply translate-x-0.5; }
 
   .article-cta {
     @apply mt-14 p-6 rounded-[20px] border border-line bg-bg-elev;
@@ -399,15 +419,16 @@
   .article-cta__grid {
     @apply grid grid-cols-1 sm:grid-cols-2 gap-3;
   }
-  .cta-card--compact { @apply p-4 gap-1.5; }
+  .cta-card--compact .cta-card__body { @apply p-4 gap-1.5; }
   .cta-card--compact h3 { @apply text-[15px]; }
   .cta-card--compact p { @apply text-[13px]; }
+  .cta-card--compact .cta-card__media { aspect-ratio: 21 / 9; }
 
   .mid-article-cta {
     @apply my-10 max-w-[36rem] mx-auto;
   }
-  .mid-article-cta .cta-card { @apply border-accent/30; }
-  .mid-article-cta .cta-card:hover { @apply border-accent/60; }
+  .mid-article-cta .cta-card { border-color: color-mix(in oklab, var(--theme-accent) 30%, transparent); }
+  .mid-article-cta .cta-card:hover { border-color: color-mix(in oklab, var(--theme-accent) 60%, transparent); }
 
   /* ---------- graph ---------- */
 
