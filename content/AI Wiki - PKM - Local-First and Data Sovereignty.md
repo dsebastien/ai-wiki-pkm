@@ -36,9 +36,9 @@ These principles directly challenge the dominant SaaS model where data lives on 
 
 ## File Over App
 
-Steph Ango, CEO of Obsidian, crystallized the ethos with the phrase "file over app." The argument is simple: applications are ephemeral, but files (especially plain-text formats like Markdown) can outlast any particular tool. If your knowledge is stored in Markdown files on your local filesystem, you can read them with any text editor, process them with any script, and migrate them to any future tool. The app becomes a lens on your data, not a prison for it.
+Steph Ango, CEO of Obsidian, crystallized the ethos with the phrase [[AI Wiki - PKM - File Over App|file over app]]. The argument is simple: applications are ephemeral, but files (especially plain-text formats like Markdown) can outlast any particular tool. If your knowledge is stored in Markdown files on your local filesystem, you can read them with any text editor, process them with any script, and migrate them to any future tool. The app becomes a lens on your data, not a prison for it.
 
-This philosophy directly informs why [[AI Wiki - PKM - Obsidian]] uses a local vault of Markdown files rather than a proprietary database. It also explains the appeal of tools like Logseq, Zettlr, and even plain directories of text files. The format is the freedom.
+This philosophy directly informs why [[AI Wiki - PKM - Obsidian]] uses a local vault of Markdown files rather than a proprietary database. It also explains the appeal of tools like Logseq, Zettlr, and even plain directories of text files. The format is the freedom. See [[AI Wiki - PKM - File Over App]] for the full unpacking.
 
 ## Why Markdown on Disk Matters
 
@@ -95,6 +95,7 @@ Together these practitioners show that local-first plus selective encryption plu
 - Ink & Switch, Automerge (automerge.org)
 
 ## Related
+- [[AI Wiki - PKM - File Over App]]
 - [[AI Wiki - PKM - Privacy in PKM]]
 - [[AI Wiki - PKM - Selective Encryption]]
 - [[AI Wiki - PKM - Sensitive Information Boundaries]]

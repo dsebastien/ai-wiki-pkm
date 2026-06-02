@@ -82,6 +82,7 @@ The privacy framing matters: Addyman's stack is not local-AI-or-cloud-AI; it is 
 - Obsidian Bases, Canvas, MCP — see [[AI Wiki - PKM - PKM Stack]]
 
 ## Related
+- [[AI Wiki - PKM - File Over App]]
 - [[AI Wiki - PKM - PKM Stack]]
 - [[AI Wiki - PKM - Local-First and Data Sovereignty]]
 - [[AI Wiki - PKM - RAG for Personal Knowledge]]

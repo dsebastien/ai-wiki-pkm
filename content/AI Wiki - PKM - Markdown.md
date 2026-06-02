@@ -94,6 +94,7 @@ Markdown enables interoperability across the PKM ecosystem. You can move notes b
 - Vault note: Markdown
 
 ## Related
+- [[AI Wiki - PKM - File Over App]]
 
 - [[AI Wiki - PKM - Plain Text and Interoperability]]
 - [[AI Wiki - PKM - Local-First and Data Sovereignty]]

@@ -121,6 +121,7 @@ This essay is the practitioner-level proof-of-concept for several abstract argum
 - spanish-learn-numbers (the demonstration plugin)
 
 ## Related
+- [[AI Wiki - PKM - File Over App]]
 
 - [[AI Wiki - PKM - Source - Matuschak 2026 - Apps and Programming Two Accidental Tyrannies]]
 - [[AI Wiki - PKM - Composability as PKM Architecture]]

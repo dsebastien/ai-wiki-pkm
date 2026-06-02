@@ -100,6 +100,7 @@ Open formats trade richness for portability. Notion's database views are powerfu
 - Vault notes: Markdown, Obsidian
 
 ## Related
+- [[AI Wiki - PKM - File Over App]]
 
 - [[AI Wiki - PKM - Markdown]]
 - [[AI Wiki - PKM - Plain Text and Interoperability]]

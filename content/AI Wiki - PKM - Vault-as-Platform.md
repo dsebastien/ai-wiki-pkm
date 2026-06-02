@@ -125,6 +125,7 @@ Tools failing multiple of these criteria cannot become platforms regardless of f
 - YB, Engineering Agency corpus (2026)
 
 ## Related
+- [[AI Wiki - PKM - File Over App]]
 
 - [[AI Wiki - PKM - Composability as PKM Architecture]]
 - [[AI Wiki - PKM - Personal OS]]

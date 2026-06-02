@@ -110,6 +110,7 @@ Matuschak's essay is directly load-bearing for several PKM debates:
 - Historical: Engelbart (1962), Smalltalk, Webstrates, Potluck, Canon Cat, Ted Nelson / Xanadu
 
 ## Related
+- [[AI Wiki - PKM - File Over App]]
 
 - [[AI Wiki - PKM - Research Purgatory]]
 - [[AI Wiki - PKM - Vibe-Coding]]

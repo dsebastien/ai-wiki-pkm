@@ -145,6 +145,7 @@ Voice encoded as structured data:
 - **Format function matching is PKM-universal.** The JSONL-for-logs, YAML-for-config, Markdown-for-narrative split generalizes beyond Koylan's specific implementation.
 
 ## Related
+- [[AI Wiki - PKM - File Over App]]
 
 - [[AI Wiki - PKM - Personal OS]]
 - [[AI Wiki - PKM - Progressive Disclosure Architecture]]

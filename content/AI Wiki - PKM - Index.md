@@ -109,6 +109,7 @@ The wiki synthesizes insights from the vault's extensive PKM notes, published ar
 - [[AI Wiki - PKM - Feedback Loops in Knowledge Systems]]
 - [[AI Wiki - PKM - Feynman Technique]]
 - [[AI Wiki - PKM - FILE Framework]]
+- [[AI Wiki - PKM - File Over App]]
 - [[AI Wiki - PKM - Folgezettel]]
 - [[AI Wiki - PKM - Foundationalism and Coherentism]]
 - [[AI Wiki - PKM - Freewriting Techniques]]

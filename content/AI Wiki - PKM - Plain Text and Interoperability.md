@@ -80,6 +80,7 @@ The piece also surfaces a privacy implication often missed: plain text on disk i
 - Gwern Branwen's long-content site as a plain text PKM exemplar
 
 ## Related
+- [[AI Wiki - PKM - File Over App]]
 
 - [[AI Wiki - PKM - Local-First and Data Sovereignty]]
 - [[AI Wiki - PKM - Privacy in PKM]]

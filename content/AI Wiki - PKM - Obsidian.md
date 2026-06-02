@@ -110,6 +110,7 @@ The local Markdown storage also means notes are future-proof: readable by any te
 - obsidian.md (official site)
 
 ## Related
+- [[AI Wiki - PKM - File Over App]]
 
 - [[AI Wiki - PKM - Tools for Thought]]
 - [[AI Wiki - PKM - Personal Knowledge Management]]
