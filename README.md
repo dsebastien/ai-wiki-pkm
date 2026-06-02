@@ -45,6 +45,16 @@ What the release script does, in order:
 
 Step 5 is what triggers the deploy.
 
+## Refreshing without a release
+
+Some things change outside the repo — most notably the CTA product catalog pulled from `store.dsebastien.net` at build time. To rebuild against the latest catalog (or any other external source) without bumping the version:
+
+```sh
+bun run redeploy
+```
+
+Same flow as release minus the version bump: syncs content, commits any content changes, falls back to an empty `ci: redeploy` commit when there's nothing new on `main`, pushes `main`, and fast-forwards `origin/production`. Cheap to run, version stays meaningful (= "we actually shipped something").
+
 ## Deployment
 
 Deployment is automated via Cloudflare Pages, connected to this repo with `production` configured as the production branch:
