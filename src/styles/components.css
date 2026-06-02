@@ -382,8 +382,13 @@
     @apply flex flex-col gap-2 p-5 md:p-6;
   }
   .cta-card__badge {
-    @apply absolute top-3 right-3 z-10 px-2.5 py-1 rounded-full font-bold uppercase
-           text-[10px] tracking-[0.08em] text-accent-text border backdrop-blur-sm;
+    @apply self-start px-2.5 py-1 rounded-full font-bold uppercase
+           text-[10px] tracking-[0.08em] text-accent-text border;
+    background: color-mix(in oklab, var(--theme-accent) 14%, transparent);
+    border-color: color-mix(in oklab, var(--theme-accent) 35%, transparent);
+  }
+  .cta-card--media .cta-card__badge {
+    @apply absolute top-3 right-3 z-10 backdrop-blur-sm;
     background: color-mix(in oklab, var(--theme-accent) 18%, transparent);
     border-color: color-mix(in oklab, var(--theme-accent) 40%, transparent);
   }
