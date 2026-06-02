@@ -1,0 +1,55 @@
+{
+  "siteTitle": "PKM Wiki",
+  "siteTagline": "A living reference on Personal Knowledge Management — synthesized from years of notes, reading, and practice.",
+  "siteUrl": "https://pkm-wiki.dsebastien.net",
+  "author": "Sébastien Dubois",
+  "authorUrl": "https://www.dsebastien.net",
+  "brandName": "Knowii",
+  "brandUrl": "https://www.knowii.net",
+  "cname": "pkm-wiki.dsebastien.net",
+  "entryNote": "content/AI Wiki - PKM - Index.md",
+  "contentDir": "content",
+  "contentSource": "/home/dsebastien/notesSeb/10 Meta/99 AI Assistant/Wikis/PKM",
+  "filter": {
+    "public_note": true
+  },
+  "titlePrefix": "AI Wiki - PKM - ",
+  "syncSkipPatterns": [
+    "^AI Wiki - PKM - Log"
+  ],
+  "theme": "knowii",
+  "themeToggle": true,
+  "defaultMode": "dark",
+  "heroEyebrow": "A living PKM wiki",
+  "heroHeadline": "Think clearly. Build a system that thinks with you.",
+  "featured": [
+    "personal-knowledge-management",
+    "zettelkasten-method",
+    "atomic-notes",
+    "evergreen-notes",
+    "building-a-second-brain",
+    "agentic-knowledge-management",
+    "context-engineering",
+    "connected-notes",
+    "obsidian",
+    "tools-for-thought"
+  ],
+  "ctaHero": {
+    "label": "Browse all articles",
+    "href": "/browse.html",
+    "secondary": {
+      "label": "Start with PKM 101",
+      "href": "/personal-knowledge-management.html"
+    }
+  },
+  "ctaTags": [
+    "pkm",
+    "personal-knowledge-management",
+    "knowledge-management",
+    "obsidian",
+    "knowledge-work",
+    "second-brain"
+  ],
+  "ctaMax": 4,
+  "ctaSource": "https://store.dsebastien.net/products-light.json"
+}
