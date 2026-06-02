@@ -17,16 +17,16 @@
     "bun": ">=1.1"
   },
   "dependencies": {
+    "@tailwindcss/cli": "^4.1.13",
     "gray-matter": "^4.0.3",
     "lunr": "^2.3.9",
     "marked": "^14.1.4",
-    "marked-gfm-heading-id": "^4.1.4"
+    "marked-gfm-heading-id": "^4.1.4",
+    "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
-    "@tailwindcss/cli": "^4.1.13",
     "@types/bun": "latest",
     "@types/lunr": "^2.3.7",
-    "tailwindcss": "^4.1.13",
     "wrangler": "^4.96.0"
   }
 }
