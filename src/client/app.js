@@ -140,3 +140,38 @@
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
   })[c]);
 })();
+
+// Mid-article CTAs: relocate hidden card templates between content H2s.
+(function () {
+  const host = document.querySelector('.article__body .mid-article-ctas');
+  if (!host) return;
+  const cards = [...host.querySelectorAll('.mid-article-cta')];
+  if (!cards.length) return;
+
+  const content = document.querySelector('.article__body');
+  if (!content) return;
+  const headings = [...content.querySelectorAll(':scope > h2')];
+  if (headings.length < 3) { host.remove(); return; }
+
+  const slots = [];
+  const first = headings.length >= 5 ? 3 : 2;
+  slots.push(first);
+  if (headings.length >= 8) {
+    const second = Math.min(first + 5, headings.length - 2);
+    if (second > first + 2) slots.push(second);
+  }
+  if (headings.length >= 13) {
+    const last = slots[slots.length - 1];
+    const third = Math.min(last + 5, headings.length - 2);
+    if (third > last + 2) slots.push(third);
+  }
+
+  const placed = Math.min(slots.length, cards.length);
+  for (let i = 0; i < placed; i++) {
+    const card = cards[i];
+    card.removeAttribute('hidden');
+    headings[slots[i]].parentNode.insertBefore(card, headings[slots[i]]);
+  }
+  for (let i = placed; i < cards.length; i++) cards[i].remove();
+  host.remove();
+})();

@@ -403,6 +403,12 @@
   .cta-card--compact h3 { @apply text-[15px]; }
   .cta-card--compact p { @apply text-[13px]; }
 
+  .mid-article-cta {
+    @apply my-10 max-w-[36rem] mx-auto;
+  }
+  .mid-article-cta .cta-card { @apply border-accent/30; }
+  .mid-article-cta .cta-card:hover { @apply border-accent/60; }
+
   /* ---------- graph ---------- */
 
   .graph-section { @apply pb-8; }

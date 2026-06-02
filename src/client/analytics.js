@@ -27,6 +27,9 @@
     externalLinkClicked(url, domain) {
       send('external_link_clicked', { domain, url: url.slice(0, 200) });
     },
+    ctaClicked(position, href, slot) {
+      send('cta_clicked', { position, href: href.slice(0, 200), slot });
+    },
   };
 
   document.addEventListener(
@@ -39,6 +42,12 @@
       let url;
       try { url = new URL(href, window.location.href); } catch { return; }
       if (url.origin === window.location.origin) return;
+      const ctaPos = a.getAttribute('data-cta-position');
+      if (ctaPos) {
+        const slot = Number(a.getAttribute('data-cta-slot') || 0);
+        window.wikiAnalytics.ctaClicked(ctaPos, url.toString(), slot);
+        return;
+      }
       window.wikiAnalytics.externalLinkClicked(url.toString(), url.hostname);
     },
     true,

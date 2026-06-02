@@ -480,7 +480,7 @@ const ctaArticleStripHtml = products.length
       .slice(0, 2)
       .map(
         (p) => `
-      <a class="cta-card cta-card--compact" href="${escapeHtml(p.href)}" rel="noopener">
+      <a class="cta-card cta-card--compact" href="${escapeHtml(p.href)}" rel="noopener" data-cta-position="end">
         <span class="cta-card__kicker">${escapeHtml(p.kicker || '')}</span>
         <h3>${escapeHtml(p.title)}</h3>
         <p>${escapeHtml(p.blurb || '')}</p>
@@ -489,6 +489,23 @@ const ctaArticleStripHtml = products.length
       .join('')}
   </div>
 </aside>`
+  : '';
+
+const midArticleCtas = products.slice(0, 3);
+const midArticleCtasHtml = midArticleCtas.length
+  ? `<div class="mid-article-ctas" hidden>${midArticleCtas
+      .map(
+        (p, i) => `
+  <aside class="mid-article-cta" data-cta-slot="${i}" hidden>
+    <a class="cta-card cta-card--compact" href="${escapeHtml(p.href)}" rel="noopener" data-cta-position="mid" data-cta-slot="${i}">
+      <span class="cta-card__kicker">${escapeHtml(p.kicker || '')}</span>
+      <h3>${escapeHtml(p.title)}</h3>
+      <p>${escapeHtml(p.blurb || '')}</p>
+      <span class="cta-card__more">Learn more →</span>
+    </a>
+  </aside>`,
+      )
+      .join('')}</div>`
   : '';
 
 // ---------- shell ----------
@@ -593,6 +610,7 @@ const renderArticle = (d: Doc) => {
     content_html: html,
     backlinks_html: backlinksHtml,
     article_cta_html: ctaArticleStripHtml,
+    mid_article_ctas_html: midArticleCtasHtml,
   });
 
   const description =
