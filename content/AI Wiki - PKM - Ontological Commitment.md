@@ -72,7 +72,7 @@ The practical lesson is to be conservative with ontological additions (add types
 
 Many vaults operate on implicit ontologies — commitments encoded in practice but not documented. This works until the vault grows past the owner's ability to remember all conventions, at which point the vault starts disagreeing with itself. Making the ontology explicit — in a meta-note, in template definitions, in validation rules — preserves coherence as the vault scales.
 
-An explicit ontology also enables LLM agents to reason about the vault's structure, query it meaningfully, and maintain conventions. Implicit ontology is invisible to agents; explicit ontology is legible.
+An explicit ontology also enables [[AI Wiki - PKM - Agentic Knowledge Management|LLM agents]] to reason about the vault's structure, query it meaningfully, and maintain conventions. Implicit ontology is invisible to agents; explicit ontology is legible.
 
 ## Key Points
 - Ontological commitment: to quantify over something is to commit to its existence (Quine)
@@ -102,3 +102,6 @@ An explicit ontology also enables LLM agents to reason about the vault's structu
 - [[AI Wiki - PKM - Information Architecture for PKM]]
 - [[AI Wiki - PKM - Object-Oriented Note-Taking]]
 - [[AI Wiki - PKM - Semantic Links]]
+- [[AI Wiki - PKM - Entity-Relationship Modeling for PKM]]
+- [[AI Wiki - PKM - Knowledge Graphs]]
+- [[AI Wiki - PKM - Epistemic Status Markers]]

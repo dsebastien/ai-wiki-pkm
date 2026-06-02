@@ -34,7 +34,7 @@ The ARC principle: **Always be Ready to Capture.** This means having a capture t
 
 ## Why You Need a Capture System
 
-"The more you have on your mind, the less headspace you have to think and work." Uncaptured ideas become open loops that drain cognitive energy. Every "I should remember to..." that stays in your head is a tiny tax on your attention. Capturing closes these loops and frees the brain for actual thinking.
+"The more you have on your mind, the less headspace you have to think and work." Uncaptured ideas become [[AI Wiki - PKM - GTD and PKM|open loops]] that drain cognitive energy. Every "I should remember to..." that stays in your head is a tiny tax on your attention. Capturing closes these loops and frees the brain for actual thinking.
 
 A capture system must satisfy several requirements:
 
@@ -54,9 +54,9 @@ Four major categories:
 
 ## The Capture Funnel
 
-A capture system is architecturally a funnel. Ideas enter through different paths depending on context (phone, desktop, paper notebook, e-reader), but all paths converge on a Single Source of Truth (SSOT).
+A capture system is architecturally a funnel. Ideas enter through different paths depending on context (phone, desktop, paper notebook, e-reader), but all paths converge on a [[AI Wiki - PKM - Single Source of Truth|Single Source of Truth]] (SSOT).
 
-Every tool outside the SSOT is a **temporary inbox**. Readwise, email, voice memos, paper notebooks — these are transit points, not destinations. If captured material stays in these tools instead of migrating to the main knowledge base, you are building information silos, not a knowledge system.
+Every tool outside the SSOT is a **temporary inbox**. [[AI Wiki - PKM - Readwise and Reading Workflows|Readwise]], email, voice memos, paper notebooks — these are transit points, not destinations. If captured material stays in these tools instead of migrating to the main knowledge base, you are building information silos, not a knowledge system.
 
 The transition from capture tool to SSOT is itself a filtering function. Not everything captured deserves to become a permanent note. The review and migration process is where you decide what earns a place in your long-term system.
 
@@ -94,7 +94,7 @@ Capturing too much is procrastination in disguise. The goal is quality over quan
 
 ## Note-Taking vs Note-Making
 
-A useful distinction separates two modes of capture:
+A useful distinction ([[AI Wiki - PKM - Note-Making vs Note-Taking|note-making vs note-taking]]) separates two modes of capture:
 
 - **Note-taking** — Capturing from the external world. Recording others' ideas, facts, quotes, highlights. Input-oriented.
 - **Note-making** — Creative expression. Capturing your own thinking, ideas, reactions, and insights. Output-oriented.
@@ -111,7 +111,7 @@ Raw captures do not become knowledge on their own. A concrete weekly workflow co
 4. Create a new atomic note for each idea with a clear title
 5. Replace the text in daily notes with links to the new atomic notes
 6. Add metadata, tags, and links to other relevant notes
-7. Update Maps of Content if relevant
+7. Update [[AI Wiki - PKM - Maps of Content]] if relevant
 
 The gardening metaphor: "Daily notes are the seeds, atomic notes are the plants, and your knowledge base is the flourishing ecosystem."
 
@@ -119,7 +119,7 @@ The gardening metaphor: "Daily notes are the seeds, atomic notes are the plants,
 
 - **"Don't mistake procrastination for sophistication"** — Spending time perfecting the capture system instead of using it
 - **"Mindless consumption is just procrastination in disguise"** — Consuming without goals or capture intent
-- **The Collector's Fallacy** — "Having more notes does not mean you have a more valuable knowledge base. Progress only comes through action."
+- **The [[AI Wiki - PKM - Collector's Fallacy|Collector's Fallacy]]** — "Having more notes does not mean you have a more valuable knowledge base. Progress only comes through action."
 - **Information junk food** — "Consuming low-quality information can be just as harmful as eating unhealthy food." Apply the Lindy Effect: prefer time-tested information over fresh content.
 
 ## Key Points
@@ -149,3 +149,5 @@ The gardening metaphor: "Daily notes are the seeds, atomic notes are the plants,
 - [[AI Wiki - PKM - Building a Second Brain]]
 - [[AI Wiki - PKM - Progressive Summarization]]
 - [[AI Wiki - PKM - Atomic Notes]]
+- [[AI Wiki - PKM - Inbox Zero for Notes]]
+- [[AI Wiki - PKM - GTD and PKM]]

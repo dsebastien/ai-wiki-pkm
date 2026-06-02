@@ -39,7 +39,7 @@ Francke described the system in a 1700 report to a visitation. Since he preached
 - Fragments were **numbered 1-10** within a section, and sheets were **labeled A, B, C...** for sequence
 - A single sermon might go through this rotation **60 or 70 times**, producing many dozens of sheets per team member
 
-The resulting stack of numbered, lettered Mitschriften was then painstakingly assembled into a coherent Reinschrift — the clean copy that entered the archive.
+The resulting stack of numbered, lettered [[AI Wiki - PKM - Mitschrift and Reinschrift|Mitschriften]] was then painstakingly assembled into a coherent [[AI Wiki - PKM - Mitschrift and Reinschrift|Reinschrift]] — the clean copy that entered the archive.
 
 ## Scale and Evidence
 
@@ -107,3 +107,6 @@ The technique also exposes a cost modern PKM tends to hide: **coordination is ex
 - [[AI Wiki - PKM - PKM for Teams]]
 - [[AI Wiki - PKM - Voice-to-Knowledge Pipeline]]
 - [[AI Wiki - PKM - Writing as Thinking]]
+- [[AI Wiki - PKM - Dictation as Pedagogy]]
+- [[AI Wiki - PKM - Student-Manuscript Textbook]]
+- [[AI Wiki - PKM - Distributed Cognition]]

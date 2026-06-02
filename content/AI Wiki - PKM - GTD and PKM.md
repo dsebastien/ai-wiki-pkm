@@ -52,7 +52,7 @@ The concept of a "trusted system" is Allen's most important contribution to prod
 
 GTD's reference filing system is deliberately simple: if it is not actionable but might be useful later, file it where you can find it. Allen offers no framework for developing ideas, connecting concepts, or building knowledge over time. Reference material in GTD is static. You file it and retrieve it; you do not grow it.
 
-This is exactly where PKM takes over. PKM handles the knowledge layer: ideas, insights, concepts, questions, and their interconnections. A Zettelkasten note is not a reference file; it is a thinking artifact that participates in an evolving network of ideas. GTD asks "what do I need to do?" PKM asks "what do I know, and what does it mean?"
+This is exactly where PKM takes over. PKM handles the knowledge layer: ideas, insights, concepts, questions, and their interconnections. A [[AI Wiki - PKM - Zettelkasten Method|Zettelkasten]] note is not a reference file; it is a thinking artifact that participates in an evolving network of ideas. GTD asks "what do I need to do?" PKM asks "what do I know, and what does it mean?"
 
 ## The Action Layer and the Knowledge Layer
 
@@ -66,7 +66,7 @@ The two layers interact at specific touch points. A meeting note might produce b
 
 ## BASB vs GTD
 
-Tiago Forte's Building a Second Brain (BASB) is often positioned as a successor to GTD, but it is more accurately a bridge between GTD and PKM. Forte's PARA system (Projects, Areas, Resources, Archives) maps closely to GTD's organizational categories, but adds the concept of progressive summarization and the "intermediate packet," which are knowledge management practices.
+Tiago Forte's Building a Second Brain (BASB) is often positioned as a successor to GTD, but it is more accurately a bridge between GTD and PKM. Forte's [[AI Wiki - PKM - PARA Method|PARA]] system (Projects, Areas, Resources, Archives) maps closely to GTD's organizational categories, but adds the concept of [[AI Wiki - PKM - Progressive Summarization|progressive summarization]] and the [[AI Wiki - PKM - Intermediate Packets|"intermediate packet"]], which are knowledge management practices.
 
 Where GTD is action-first and treats knowledge as reference, BASB is project-first and treats knowledge as raw material for creative output. BASB inherits GTD's capture discipline but extends it into a system where captured material is progressively refined and eventually deployed in projects.
 
@@ -113,3 +113,6 @@ Practitioners commonly integrate GTD and PKM in several ways:
 - [[AI Wiki - PKM - Personal Knowledge Management]]
 - [[AI Wiki - PKM - PKM Anti-Patterns]]
 - [[AI Wiki - PKM - Tagging and Metadata]]
+- [[AI Wiki - PKM - Periodic Reviews]]
+- [[AI Wiki - PKM - Knowledge Lifecycle]]
+- [[AI Wiki - PKM - Connected Notes]]

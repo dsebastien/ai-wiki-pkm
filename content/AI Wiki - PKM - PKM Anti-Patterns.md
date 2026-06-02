@@ -28,13 +28,13 @@ Personal Knowledge Management promises clarity, creativity, and compounding retu
 
 ## The Collector's Fallacy
 
-Coined by Christian Tietze, the Collector's Fallacy is the confusion of collecting information with understanding it. Saving an article to Pocket, clipping a webpage to a read-later app, or bookmarking a PDF creates the illusion of having engaged with the material. The brain registers the act of saving as a form of completion. It is not. The information sits unprocessed, and the collector moves on to the next shiny source, building an ever-growing archive of things they have never actually read or thought about.
+Coined by Christian Tietze, the [[AI Wiki - PKM - Collector's Fallacy|Collector's Fallacy]] is the confusion of collecting information with understanding it. Saving an article to Pocket, clipping a webpage to a read-later app, or bookmarking a PDF creates the illusion of having engaged with the material. The brain registers the act of saving as a form of completion. It is not. The information sits unprocessed, and the collector moves on to the next shiny source, building an ever-growing archive of things they have never actually read or thought about.
 
 **Remedy:** Enforce a processing step. Nothing enters the permanent system without being paraphrased, summarized, or connected to existing notes. The friction is the point. If a source is not worth the effort of processing, it was not worth saving.
 
 ## Tool-Hopping Syndrome
 
-The PKM space produces new tools at a relentless pace. Every few months a new app promises to be the one that finally makes knowledge management effortless. The tool-hopper migrates from Evernote to Notion to Roam to Obsidian to Capacities, spending weeks configuring each new system and importing (or abandoning) old notes. The actual work of thinking and writing never happens because the infrastructure is perpetually under construction.
+The PKM space produces new tools at a relentless pace. Every few months a new app promises to be the one that finally makes knowledge management effortless. The tool-hopper migrates from Evernote to Notion to Roam to [[AI Wiki - PKM - Obsidian|Obsidian]] to Capacities, spending weeks configuring each new system and importing (or abandoning) old notes. The actual work of thinking and writing never happens because the infrastructure is perpetually under construction.
 
 **Remedy:** Commit to a tool for a minimum of six months. Evaluate based on whether you are producing useful output, not on feature comparisons. The best tool is the one you actually use consistently.
 
@@ -60,11 +60,11 @@ The belief that every note must be perfectly written, properly tagged, and exhau
 
 The inevitable result of collecting without reviewing. Thousands of notes accumulate, but without regular revisitation, they become a graveyard of forgotten ideas. The system technically contains knowledge, but it is functionally inaccessible because the user has no memory of what is there and no habit of looking.
 
-**Remedy:** Implement review practices. Spaced repetition, random resurfacing, or scheduled review sessions. A note that is never revisited might as well not exist.
+**Remedy:** Implement review practices. [[AI Wiki - PKM - Spaced Repetition|Spaced repetition]], random resurfacing, or scheduled review sessions. A note that is never revisited might as well not exist.
 
 ## The Second Brain Delusion
 
-A more fundamental criticism: the metaphor of a "second brain" can create the false belief that externalizing knowledge is equivalent to understanding it. Critics argue that PKM systems can become crutches that atrophy actual cognitive ability. If you cannot think without consulting your notes, the system has replaced your thinking rather than augmented it.
+A more fundamental criticism: the metaphor of a [[AI Wiki - PKM - Building a Second Brain|"second brain"]] can create the false belief that externalizing knowledge is equivalent to understanding it. Critics argue that PKM systems can become crutches that atrophy actual cognitive ability. If you cannot think without consulting your notes, the system has replaced your thinking rather than augmented it.
 
 **Remedy:** Use the system as a thinking tool, not a memory replacement. The goal is to develop better ideas, not to offload cognition entirely. Notes should be a scaffold for thought, not a substitute for it.
 
@@ -103,3 +103,7 @@ The compulsive accumulation of information "just in case." Every article, every 
 - [[AI Wiki - PKM - Progressive Summarization]]
 - [[AI Wiki - PKM - Spaced Repetition]]
 - [[AI Wiki - PKM - Writing as Thinking]]
+- [[AI Wiki - PKM - Information Diet]]
+- [[AI Wiki - PKM - Tag Overwhelm]]
+- [[AI Wiki - PKM - Cognitive Debt]]
+- [[AI Wiki - PKM - Knowledge Decay]]

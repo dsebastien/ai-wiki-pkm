@@ -42,7 +42,7 @@ Writing is the most reliable way to test for this illusion. If you cannot explai
 
 Richard Feynman's approach to learning operationalizes writing-as-thinking into a repeatable method. The technique has four steps: choose a concept, explain it in plain language as if teaching someone with no background, identify where your explanation breaks down, and return to the source material to fill the gaps. Then simplify further.
 
-The Feynman technique works because it forces the generation of explanations rather than the consumption of them. It exposes the exact boundaries of your understanding. Most PKM practitioners unknowingly apply a version of this technique whenever they paraphrase source material into their own notes rather than copying verbatim.
+The [[AI Wiki - PKM - Feynman Technique|Feynman technique]] works because it forces the generation of explanations rather than the consumption of them. It exposes the exact boundaries of your understanding. Most PKM practitioners unknowingly apply a version of this technique whenever they paraphrase source material into their own notes rather than copying verbatim.
 
 ## The Generation Effect
 
@@ -98,3 +98,6 @@ The anti-patterns of PKM (collecting without processing, copying without paraphr
 - [[AI Wiki - PKM - PKM Anti-Patterns]]
 - [[AI Wiki - PKM - Progressive Summarization]]
 - [[AI Wiki - PKM - Compounding Knowledge]]
+- [[AI Wiki - PKM - Metacognition]]
+- [[AI Wiki - PKM - Active Reading]]
+- [[AI Wiki - PKM - Note-Making vs Note-Taking]]

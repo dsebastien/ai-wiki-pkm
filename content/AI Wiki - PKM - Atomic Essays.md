@@ -34,7 +34,7 @@ This is the antithesis of formal academic writing. No literature reviews, no exh
 
 ## Atomic Essays vs Atomic Notes
 
-The distinction is important. Atomic notes are internal knowledge units designed for connection within your system. They optimize for linkability and reuse. Atomic essays are external outputs designed for an audience. They optimize for clarity and standalone readability. An atomic note says "Spaced repetition leverages the forgetting curve to improve retention" and links to five related notes. An atomic essay takes that same idea and wraps it in context, examples, and a point of view that a reader outside your vault can follow.
+The distinction is important. Atomic notes are internal knowledge units designed for connection within your system. They optimize for linkability and reuse. Atomic essays are external outputs designed for an audience. They optimize for clarity and standalone readability. An atomic note says "[[AI Wiki - PKM - Spaced Repetition|Spaced repetition]] leverages the forgetting curve to improve retention" and links to five related notes. An atomic essay takes that same idea and wraps it in context, examples, and a point of view that a reader outside your vault can follow.
 
 ## Content Seeds
 
@@ -64,3 +64,6 @@ Atomic essays also function as content seeds. A 300-word essay that resonates ca
 - [[AI Wiki - PKM - PKM-to-Publication Pipeline]]
 - [[AI Wiki - PKM - Writing as Thinking]]
 - [[AI Wiki - PKM - Atomic Notes]]
+- [[AI Wiki - PKM - Public Learning]]
+- [[AI Wiki - PKM - Content Repurposing]]
+- [[AI Wiki - PKM - Note-Making vs Note-Taking]]

@@ -22,7 +22,7 @@ public_note: true
 
 # AI Wiki - PKM - Gettier Problem
 
-In three pages in 1963, Edmund Gettier broke the classical definition of knowledge. The paper showed that a belief can satisfy all three JTB conditions — justified, true, belief — and still not be knowledge. Sixty years of epistemology has not produced consensus on the fix. For PKM, the problem is a reminder that even impeccably-sourced true claims can be lucky accidents.
+In three pages in 1963, Edmund Gettier broke the classical definition of knowledge. The paper showed that a belief can satisfy all three [[AI Wiki - PKM - Justified True Belief|JTB]] conditions — justified, true, belief — and still not be knowledge. Sixty years of epistemology has not produced consensus on the fix. For PKM, the problem is a reminder that even impeccably-sourced true claims can be lucky accidents.
 
 ## The Original Cases
 
@@ -61,13 +61,13 @@ Each is a Gettier case in miniature: the vault holds a justified true belief, bu
 A PKM-aware response does not try to eliminate Gettier cases (that is not possible) but to reduce their downstream damage.
 
 - **Track source chains, not just sources**: if a blog cites a study, record both. When something later contradicts the claim, you can walk back the chain rather than re-deriving it.
-- **Prefer primary sources for load-bearing claims**: the further from the primary source, the more opportunity for Gettier drift.
+- **Prefer [[AI Wiki - PKM - Primary Secondary and Tertiary Sources|primary sources]] for load-bearing claims**: the further from the primary source, the more opportunity for Gettier drift.
 - **Build redundant justification for high-stakes claims**: two independent justifications for the same claim are harder to both be Gettier-lucky in the same direction.
-- **Date claims and flag re-verification**: some Gettier cases become visible only when new information arrives; scheduled review catches them.
+- **Date claims and flag re-verification**: some Gettier cases become visible only when new information arrives; [[AI Wiki - PKM - Periodic Reviews|scheduled review]] catches them.
 
 ## The Deeper Lesson
 
-The Gettier problem is a permanent reminder that certainty is not available. Even the most carefully sourced claim may be accidentally right. This is not a reason to abandon justification — it is a reason to hold even justified beliefs with appropriate tentativeness, which is exactly the fallibilist stance the best PKM practice already endorses.
+The Gettier problem is a permanent reminder that certainty is not available. Even the most carefully sourced claim may be accidentally right. This is not a reason to abandon justification — it is a reason to hold even justified beliefs with appropriate tentativeness, which is exactly the [[AI Wiki - PKM - Fallibilism|fallibilist]] stance the best PKM practice already endorses.
 
 ## Key Points
 - Gettier showed JTB can be satisfied without knowledge — a belief can be justified, true, and held, yet only accidentally correct
@@ -94,3 +94,6 @@ The Gettier problem is a permanent reminder that certainty is not available. Eve
 - [[AI Wiki - PKM - Epistemic Hygiene]]
 - [[AI Wiki - PKM - Argumentation in PKM]]
 - [[AI Wiki - PKM - AI Sycophancy and PKM]]
+- [[AI Wiki - PKM - Calibration and Epistemic Humility]]
+- [[AI Wiki - PKM - Epistemic Status Markers]]
+- [[AI Wiki - PKM - Knowledge Decay]]

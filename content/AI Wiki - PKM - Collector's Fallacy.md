@@ -29,7 +29,7 @@ The collector's fallacy is the mistake of confusing the act of collecting inform
 
 ## Origin
 
-Christian Tietze named this anti-pattern in a 2014 blog post on zettelkasten.de. His formulation was precise: collecting does not equal understanding. Having a copy of a text means you own the paper (or the bytes), not the ideas. The knowledge remains in the source, not in your head or your notes. Tietze was writing about academic research, but the pattern applies universally.
+[[Christian Tietze]] named this anti-pattern in a 2014 blog post on zettelkasten.de. His formulation was precise: collecting does not equal understanding. Having a copy of a text means you own the paper (or the bytes), not the ideas. The knowledge remains in the source, not in your head or your notes. Tietze was writing about academic research, but the pattern applies universally.
 
 ## Why It Is So Seductive
 
