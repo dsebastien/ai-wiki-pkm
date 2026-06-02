@@ -342,6 +342,10 @@ type Product = {
   badge?: string;
   image?: string;
   imageAlt?: string;
+  // Build-time only: used to rank against the current page's topic. Not
+  // emitted into the HTML.
+  tags?: string[];
+  baseScore?: number;
 };
 
 const ctaHeroHtml = (() => {
@@ -399,6 +403,12 @@ const TIER_LABEL: Record<string, string> = {
   enterprise: 'Enterprise',
 };
 
+const baseRank = (p: LightProduct): number =>
+  (p.bestValue ? 500 : 0) +
+  (p.bestseller ? 250 : 0) +
+  (p.featured ? 100 : 0) +
+  p.priority;
+
 const toCta = (p: LightProduct): Product => {
   const tier = p.priceTier ? TIER_LABEL[p.priceTier] || '' : '';
   const cat = titleCase(p.mainCategory || '');
@@ -408,13 +418,14 @@ const toCta = (p: LightProduct): Product => {
     kicker,
     blurb: p.shortDescription || '',
     href: p.href,
+    tags: p.tags,
+    baseScore: baseRank(p),
     ...(p.badge ? { badge: titleCase(p.badge) } : {}),
   };
 };
 
 const loadCtasFromEndpoint = async (): Promise<Product[]> => {
   const tags: string[] = CFG.ctaTags || [];
-  const max: number = CFG.ctaMax || 4;
   if (!tags.length) return [];
   const url = CFG.ctaSource || 'https://store.dsebastien.net/products-light.json';
   try {
@@ -422,19 +433,11 @@ const loadCtasFromEndpoint = async (): Promise<Product[]> => {
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     const payload = (await r.json()) as { products: LightProduct[] };
     const wanted = new Set(tags);
+    // Keep the full site-relevant pool — per-page logic picks from it.
     const ranked = payload.products
       .map((p) => ({ p, match: p.tags.filter((t) => wanted.has(t)).length }))
       .filter(({ match }) => match > 0)
-      .sort((a, b) => {
-        const rank = (x: { p: LightProduct; match: number }) =>
-          x.match * 1000 +
-          (x.p.bestValue ? 500 : 0) +
-          (x.p.bestseller ? 250 : 0) +
-          (x.p.featured ? 100 : 0) +
-          x.p.priority;
-        return rank(b) - rank(a);
-      })
-      .slice(0, max)
+      .sort((a, b) => b.p.priority + baseRank(b.p) - (a.p.priority + baseRank(a.p)))
       .map(({ p }) => toCta(p));
     console.log(`CTAs: ${ranked.length} pulled from ${url} (filter: ${tags.join(', ')})`);
     return ranked;
@@ -444,10 +447,149 @@ const loadCtasFromEndpoint = async (): Promise<Product[]> => {
   }
 };
 
-const products: Product[] =
+const allProducts: Product[] =
   Array.isArray(CFG.ctaProducts) && CFG.ctaProducts.length
     ? CFG.ctaProducts
     : await loadCtasFromEndpoint();
+
+const HOME_MAX: number = CFG.ctaMax || 4;
+const products: Product[] = allProducts.slice(0, HOME_MAX);
+
+// ---------- per-page CTA targeting ----------
+//
+// Wiki note frontmatter tags are mostly meta (`type/ai_wiki`, `zone/meta`)
+// and rarely overlap with product tags. The real topical signal lives in
+// the slug + title. We tokenize all three, expand with a small alias map,
+// and score each product by how many of its tags match the resulting set.
+// Products with no per-page hit fall back to the global ranking, so an
+// article always shows N cards.
+
+const TAG_ALIASES: Record<string, string[]> = {
+  atomic: ['note-taking'],
+  'atomic-notes': ['note-taking'],
+  evergreen: ['note-taking'],
+  'evergreen-notes': ['note-taking'],
+  notes: ['note-taking'],
+  'note-taking': ['note-taking'],
+  zettelkasten: ['zettelkasten'],
+  'zettelkasten-method': ['zettelkasten'],
+  obsidian: ['obsidian'],
+  pkm: ['pkm', 'personal-knowledge-management', 'knowledge-management'],
+  'personal-knowledge-management': ['pkm', 'personal-knowledge-management', 'knowledge-management'],
+  'knowledge-management': ['knowledge-management', 'pkm'],
+  'second-brain': ['second-brain'],
+  'building-a-second-brain': ['second-brain'],
+  'tools-for-thought': ['pkm', 'second-brain'],
+  productivity: ['productivity'],
+  journaling: ['journaling'],
+  journal: ['journaling'],
+  review: ['journaling', 'periodic-reviews'],
+  reviews: ['journaling', 'periodic-reviews'],
+  'periodic-reviews': ['journaling', 'periodic-reviews'],
+  learning: ['learning'],
+  learn: ['learning'],
+  ai: ['ai'],
+  'knowledge-work': ['knowledge-work'],
+  'knowledge-worker': ['knowledge-work'],
+  organization: ['personal-organization'],
+  'personal-organization': ['personal-organization'],
+  goals: ['goals', 'smart-goals'],
+  'time-management': ['time-management'],
+  systems: ['systems'],
+  routines: ['routines'],
+  values: ['values'],
+  clarity: ['clarity'],
+  markdown: ['markdown'],
+  writing: ['writing', 'content-creation'],
+  content: ['content-creation'],
+  'content-creation': ['content-creation'],
+  entrepreneur: ['entrepreneurship'],
+  entrepreneurship: ['entrepreneurship'],
+  community: ['community'],
+  wellbeing: ['mental-health', 'wellbeing'],
+  mental: ['mental-health'],
+  templates: ['templates'],
+  para: ['para-method'],
+  'para-method': ['para-method'],
+};
+
+const PHRASES = [
+  'atomic notes',
+  'evergreen notes',
+  'second brain',
+  'tools for thought',
+  'knowledge management',
+  'personal knowledge management',
+  'time management',
+  'mental health',
+  'content creation',
+  'note taking',
+  'note-taking',
+  'periodic reviews',
+];
+
+const pageProductTags = (doc: Doc): Set<string> => {
+  const tokens = new Set<string>();
+  const add = (raw: string) => {
+    const t = raw.toLowerCase().replace(/[^a-z0-9-]/g, '');
+    if (t) tokens.add(t);
+  };
+  add(doc.slug);
+  doc.slug.split('-').forEach(add);
+  doc.displayTitle.split(/\s+/).forEach(add);
+  const fmTags: unknown = doc.fm?.tags;
+  if (Array.isArray(fmTags)) {
+    fmTags.forEach((t) => {
+      if (typeof t === 'string') {
+        // Frontmatter tags can be nested (`type/ai_wiki`); take each segment.
+        t.split('/').forEach(add);
+      }
+    });
+  }
+  const titleNorm = doc.displayTitle.toLowerCase();
+  PHRASES.forEach((p) => {
+    if (titleNorm.includes(p)) tokens.add(p.replace(/\s+/g, '-'));
+  });
+
+  const ppt = new Set<string>();
+  for (const tok of tokens) {
+    const aliases = TAG_ALIASES[tok];
+    if (aliases) aliases.forEach((a) => ppt.add(a));
+  }
+  return ppt;
+};
+
+const wantedSet = new Set<string>(CFG.ctaTags || []);
+
+const selectForPage = (doc: Doc, n: number): Product[] => {
+  if (!allProducts.length) return [];
+  const ppt = pageProductTags(doc);
+  const scored = allProducts.map((p) => {
+    const tags = p.tags || [];
+    const perPage = ppt.size ? tags.filter((t) => ppt.has(t)).length : 0;
+    const global = tags.filter((t) => wantedSet.has(t)).length;
+    let score: number;
+    if (perPage > 0) {
+      // A per-page hit dominates: any topical match beats any non-match.
+      // Then density (match share of total tags) is the primary tiebreaker
+      // — a niche product where 1/2 of its tags match beats a flagship
+      // where 1/6 match. baseScore is heavily compressed here so commercial
+      // priority can't outvote topical specificity.
+      const density = perPage / Math.max(tags.length, 1);
+      score =
+        perPage * 10_000 +
+        Math.round(density * 2000) +
+        global * 30 +
+        Math.round((p.baseScore || 0) * 0.2);
+    } else {
+      // No topical hit: fall back to global tag relevance + base ranking.
+      score = global * 100 + (p.baseScore || 0);
+    }
+    return { p, score };
+  });
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, n).map(({ p }) => p);
+};
 
 // Enrich CTA products with Open Graph metadata (image + description) fetched
 // from each product's landing page. Cached on disk so repeat builds are free
@@ -502,9 +644,11 @@ const fetchOg = async (href: string): Promise<OgEntry | undefined> => {
   }
 };
 
-if (products.length) {
-  const ogs = await Promise.all(products.map((p) => fetchOg(p.href)));
-  products.forEach((p, i) => {
+if (allProducts.length) {
+  // Enrich the whole pool, not just the homepage slice — per-page selection
+  // can surface any product, and they all need images.
+  const ogs = await Promise.all(allProducts.map((p) => fetchOg(p.href)));
+  allProducts.forEach((p, i) => {
     const og = ogs[i];
     if (!og) return;
     if (og.image && !p.image) p.image = og.image;
@@ -561,30 +705,28 @@ const ctaProductsHtml = products.length
 </section>`
   : '';
 
-const ctaArticleStripHtml = products.length
-  ? `
+const renderEndStripHtml = (forPage: Product[]): string =>
+  forPage.length
+    ? `
 <aside class="article-cta">
   <h2>Enjoying the wiki?</h2>
   <div class="article-cta__grid">
-    ${products
-      .slice(0, 2)
-      .map((p) => renderCtaCard(p, { compact: true, position: 'end' }))
-      .join('')}
+    ${forPage.map((p) => renderCtaCard(p, { compact: true, position: 'end' })).join('')}
   </div>
 </aside>`
-  : '';
+    : '';
 
-const midArticleCtas = products.slice(0, 3);
-const midArticleCtasHtml = midArticleCtas.length
-  ? `<div class="mid-article-ctas" hidden>${midArticleCtas
-      .map(
-        (p, i) => `
+const renderMidArticleHtml = (forPage: Product[]): string =>
+  forPage.length
+    ? `<div class="mid-article-ctas" hidden>${forPage
+        .map(
+          (p, i) => `
   <aside class="mid-article-cta" data-cta-slot="${i}" hidden>
     ${renderCtaCard(p, { compact: true, position: 'mid', slot: i })}
   </aside>`,
-      )
-      .join('')}</div>`
-  : '';
+        )
+        .join('')}</div>`
+    : '';
 
 // ---------- shell ----------
 
@@ -681,14 +823,18 @@ const renderArticle = (d: Doc) => {
 
   const meta = `<span class="meta__rt">${readingTime(d.content)} min read</span>`;
 
+  // Per-page CTAs: rank products against this article's topic. Up to 3 are
+  // used; mid-article takes all 3, the end strip takes the top 2.
+  const pageProducts = selectForPage(d, 3);
+
   const body = render(articleTpl, {
     title: escapeHtml(d.displayTitle),
     meta_html: meta,
     toc_html: tocHtml,
     content_html: html,
     backlinks_html: backlinksHtml,
-    article_cta_html: ctaArticleStripHtml,
-    mid_article_ctas_html: midArticleCtasHtml,
+    article_cta_html: renderEndStripHtml(pageProducts.slice(0, 2)),
+    mid_article_ctas_html: renderMidArticleHtml(pageProducts),
   });
 
   const description =
