@@ -1,6 +1,6 @@
 # ai-wiki-pkm
 
-The content + deploy repo for [pkm.dsebastien.net](https://pkm.dsebastien.net), Sébastien Dubois' PKM wiki — built from his Obsidian vault using [ai-wiki-template](https://github.com/dsebastien/ai-wiki-template).
+The content + deploy repo for https://pkm-wiki.dsebastien.net, Sébastien Dubois' PKM wiki. This website is built from his Obsidian vault using [ai-wiki-template](https://github.com/dsebastien/ai-wiki-template).
 
 ```sh
 bun install
