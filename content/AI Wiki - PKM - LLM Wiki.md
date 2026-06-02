@@ -4,7 +4,7 @@ wiki_role: article
 explored: true
 ai_generated: true
 confidence: high
-maturity: mature
+maturity: substantial
 graduated_notes:
 sources:
   - vault notes (LLM Wiki, Compounding Knowledge, Farzapedia)

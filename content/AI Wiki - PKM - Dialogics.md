@@ -71,7 +71,7 @@ A dialogical reader does not choose between these. They build practices that hol
 ### Concrete Vault Practices
 
 - **[[AI Wiki - PKM - Atomic Notes]] AND linking**: atomization (separation) and connection (unification) are both required — atomic notes that aren't linked are isolation; dense linking without atomic separation is mush
-- **Capture AND prune**: the [[AI Wiki - PKM - Capture Habit]] requires aggressive capture; [[AI Wiki - PKM - PKM Anti-Patterns]] warn against hoarding without curation
+- **Capture AND prune**: the [[AI Wiki - PKM - The Capture Habit|capture habit]] requires aggressive capture; [[AI Wiki - PKM - PKM Anti-Patterns]] warn against hoarding without curation
 - **Structure AND emergence**: top-down [[AI Wiki - PKM - Maps of Content]] AND bottom-up [[AI Wiki - PKM - Connected Notes]] discovery
 - **Personal AND public**: notes for yourself (private synthesis) AND notes for sharing (public learning)
 

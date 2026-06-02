@@ -19,7 +19,7 @@ tags:
 created: 2026-04-07T09:44
 updated: 2026-04-08T07:35
 public_note: true
-maturity: stub
+maturity: draft
 ---
 
 # AI Wiki - PKM - Cognitive Science of PKM

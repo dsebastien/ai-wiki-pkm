@@ -4,7 +4,7 @@ wiki_role: article
 explored: false
 ai_generated: true
 confidence: medium
-maturity: draft
+maturity: substantial
 graduated_notes:
 sources:
   - YB, 'In Service of the Idea' (2026-01-27) and 'Engineer Your Creativity' (2026-01-28)

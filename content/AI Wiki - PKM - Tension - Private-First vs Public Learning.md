@@ -4,7 +4,7 @@ wiki_role: article
 explored: false
 ai_generated: true
 confidence: medium
-maturity: draft
+maturity: substantial
 graduated_notes:
 sources:
   - YB, 'Engineer Your Creativity' (2026-01-28) — 6-month private-first recommendation

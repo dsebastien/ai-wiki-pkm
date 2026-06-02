@@ -4,7 +4,7 @@ wiki_role: article
 explored: false
 ai_generated: true
 confidence: high
-maturity: draft
+maturity: mature
 graduated_notes:
 sources:
   - Ann Blair, 'Textbooks and Methods of Note-Taking in Early Modern Europe' (2008)

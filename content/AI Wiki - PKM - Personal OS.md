@@ -4,7 +4,7 @@ wiki_role: article
 explored: false
 ai_generated: true
 confidence: medium
-maturity: draft
+maturity: substantial
 graduated_notes:
 sources:
   - Muratcan Koylan, 'The File System Is the New Database' (2026-02) and follow-up (2026-04)

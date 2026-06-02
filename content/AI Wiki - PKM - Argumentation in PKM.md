@@ -4,7 +4,7 @@ wiki_role: article
 explored: false
 ai_generated: true
 confidence: medium
-maturity: substantial
+maturity: draft
 graduated_notes:
 sources:
   - Readwise highlights

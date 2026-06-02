@@ -4,7 +4,7 @@ wiki_role: article
 explored: false
 ai_generated: true
 confidence: medium
-maturity: draft
+maturity: substantial
 graduated_notes:
 sources:
   - YB (@yb_effect), 'Claude-Obsidian Setup Tips,' X thread (2026-04-13)

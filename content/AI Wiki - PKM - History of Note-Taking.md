@@ -4,7 +4,7 @@ wiki_role: article
 explored: true
 ai_generated: true
 confidence: medium
-maturity: draft
+maturity: substantial
 graduated_notes:
 sources:
   - web research

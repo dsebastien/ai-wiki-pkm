@@ -4,7 +4,7 @@ wiki_role: article
 explored: false
 ai_generated: true
 confidence: medium
-maturity: draft
+maturity: substantial
 graduated_notes:
 sources:
   - YB, 'Engineer your Creativity,' Engineering Agency Substack (2026-01-28)

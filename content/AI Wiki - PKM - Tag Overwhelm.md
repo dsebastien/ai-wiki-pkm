@@ -4,7 +4,7 @@ wiki_role: article
 explored: false
 ai_generated: true
 confidence: high
-maturity: substantial
+maturity: mature
 graduated_notes:
 sources:
   - Forte Labs - Complete Guide to Tagging
@@ -184,7 +184,6 @@ The agent-assisted approach (2026+) enables a third path: **maintain consistency
 - [[AI Wiki - PKM - The 2025-2026 Moment]] — context for AI-assisted PKM becoming mainstream
 - [[AI Wiki - PKM - Agentic Knowledge Management]] — agents as active vault participants
 - [[AI Wiki - PKM - Knowledge Governance]] — scaling consistency in teams
-- [[AI Wiki - PKM - Tension - Consistency vs Chaos in PKM]] (suggested new article)
 
 ## Key Points
 

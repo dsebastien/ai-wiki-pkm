@@ -4,7 +4,7 @@ wiki_role: article
 explored: false
 ai_generated: true
 confidence: high
-maturity: substantial
+maturity: mature
 graduated_notes:
 sources:
   - Steph Ango — File over app (stephango.com, 2023)

@@ -55,7 +55,7 @@ Emergence does not just happen. It requires structural preconditions:
 A vault with 50 notes rarely emerges meaningfully. The graph is too sparse. Emergence typically appears in vaults with **several hundred to thousands of notes**, where unexpected adjacencies become probabilistically likely.
 
 ### 2. Interaction Mechanism
-Parts must *interact* — not just coexist. In vaults, interaction means [[AI Wiki - PKM - Bidirectional Linking]], [[AI Wiki - PKM - Backlinks]], shared tags, and the cognitive act of holding multiple notes in mind simultaneously. Without linking, you have a pile, not a system.
+Parts must *interact* — not just coexist. In vaults, interaction means [[AI Wiki - PKM - Bidirectional Linking]], backlinks, shared tags, and the cognitive act of holding multiple notes in mind simultaneously. Without linking, you have a pile, not a system.
 
 ### 3. Atomic Decomposition
 Paradoxically, emergence requires that the parts be *small enough* to recombine in unexpected ways. [[AI Wiki - PKM - Atomic Notes]] make recombination possible. Monolithic notes (entire articles, dumps) resist recombination — their internal structure locks ideas to specific contexts.

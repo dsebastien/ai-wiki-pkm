@@ -4,7 +4,7 @@ wiki_role: article
 explored: false
 ai_generated: true
 confidence: high
-maturity: draft
+maturity: mature
 graduated_notes:
 sources:
   - "Herrmann, Call, Hernández-Lloreda, Hare, Tomasello, 'Humans Have Evolved Specialized Skills of Social Cognition: The Cultural Intelligence Hypothesis,' Science 317 (2007), pp. 1360-1366"
