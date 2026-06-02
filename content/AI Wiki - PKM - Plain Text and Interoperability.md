@@ -19,8 +19,9 @@ tags:
   - zone/meta
   - ai
 created: 2026-04-07T09:46
-updated: 2026-04-28T08:46
+updated: 2026-06-02T12:19:23.599Z
 public_note: true
+public_ghost_blog_news_ignore: true
 ---
 
 # AI Wiki - PKM - Plain Text and Interoperability

@@ -20,8 +20,9 @@ tags:
   - zone/meta
   - ai
 created: 2026-04-07T09:44
-updated: 2026-04-28T08:45
+updated: 2026-06-02T12:19:24.431Z
 public_note: true
+public_ghost_blog_news_ignore: true
 ---
 
 # AI Wiki - PKM - Local-First and Data Sovereignty

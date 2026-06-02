@@ -17,8 +17,9 @@ tags:
   - zone/meta
   - ai
 created: 2026-04-28T08:39
-updated: 2026-04-28T11:41
+updated: 2026-06-02T12:19:17.110Z
 public_note: true
+public_ghost_blog_news_ignore: true
 ---
 
 # AI Wiki - PKM - Source - Addyman 2026 - 18000 Files and the Future of Digital Knowledge

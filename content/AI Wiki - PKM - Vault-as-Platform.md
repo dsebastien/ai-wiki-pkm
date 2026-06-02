@@ -18,8 +18,9 @@ tags:
   - zone/meta
   - ai
 created: 2026-04-14T08:53
-updated: 2026-04-28T11:41
+updated: 2026-06-02T12:19:20.449Z
 public_note: true
+public_ghost_blog_news_ignore: true
 ---
 
 # AI Wiki - PKM - Vault-as-Platform

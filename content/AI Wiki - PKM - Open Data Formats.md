@@ -19,8 +19,9 @@ tags:
   - zone/meta
   - ai
 created: 2026-04-07T10:12
-updated: 2026-04-07T16:05
+updated: 2026-06-02T12:19:22.642Z
 public_note: true
+public_ghost_blog_news_ignore: true
 ---
 
 # AI Wiki - PKM - Open Data Formats

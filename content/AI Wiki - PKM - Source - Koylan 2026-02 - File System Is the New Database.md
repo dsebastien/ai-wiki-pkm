@@ -20,8 +20,9 @@ tags:
   - zone/meta
   - ai
 created: 2026-04-14T08:47
-updated: 2026-04-28T11:41
+updated: 2026-06-02T12:19:18.310Z
 public_note: true
+public_ghost_blog_news_ignore: true
 ---
 
 # AI Wiki - PKM - Source - Koylan 2026-02 - File System Is the New Database

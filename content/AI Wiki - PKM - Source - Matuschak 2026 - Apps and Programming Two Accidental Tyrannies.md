@@ -19,8 +19,9 @@ tags:
   - zone/meta
   - ai
 created: 2026-04-14T08:37
-updated: 2026-04-28T11:41
+updated: 2026-06-02T12:19:19.186Z
 public_note: true
+public_ghost_blog_news_ignore: true
 ---
 
 # AI Wiki - PKM - Source - Matuschak 2026 - Apps and Programming Two Accidental Tyrannies

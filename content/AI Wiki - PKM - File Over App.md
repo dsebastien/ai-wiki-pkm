@@ -23,7 +23,8 @@ tags:
   - ai
 public_note: true
 created: 2026-06-02T13:34:58+02:00
-updated: 2026-06-02T13:46:07+02:00
+updated: 2026-06-02T12:18:37.858Z
+public_ghost_blog_news_ignore: true
 ---
 
 # AI Wiki - PKM - File Over App

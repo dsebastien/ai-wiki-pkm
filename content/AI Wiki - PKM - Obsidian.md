@@ -18,8 +18,9 @@ tags:
   - zone/meta
   - ai
 created: 2026-04-07T09:13
-updated: 2026-04-07T16:05
+updated: 2026-06-02T12:19:21.187Z
 public_note: true
+public_ghost_blog_news_ignore: true
 ---
 
 # AI Wiki - PKM - Obsidian
