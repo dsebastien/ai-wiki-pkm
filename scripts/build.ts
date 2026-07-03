@@ -380,6 +380,10 @@ type LightProduct = {
   bestseller: boolean;
   bestValue: boolean;
   priority: number;
+  // Optional: older catalog payloads don't carry cover images; the OG-metadata
+  // enrichment below fills the gap when they're absent.
+  image?: string | null;
+  imageAlt?: string | null;
 };
 
 const SMALL_WORDS = new Set(['and', 'or', 'of', 'to', 'the', 'a', 'an', 'for', 'in']);
@@ -421,6 +425,7 @@ const toCta = (p: LightProduct): Product => {
     tags: p.tags,
     baseScore: baseRank(p),
     ...(p.badge ? { badge: titleCase(p.badge) } : {}),
+    ...(p.image ? { image: p.image, imageAlt: p.imageAlt || p.name } : {}),
   };
 };
 
